@@ -1,0 +1,3 @@
+numpy 
+face_recognition
+open-cv2
