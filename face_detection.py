@@ -2,16 +2,16 @@ import numpy as np
 import cv2
 import face_recognition 
 
-face_cascade = cv2.CascadeClassifier('E://dataset/haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
-dhanu_image = face_recognition.load_image_file('E://Pictures/chandan/dhanush.jpg')
+dhanu_image = face_recognition.load_image_file('Image path')
 dhanu_encode = face_recognition.face_encodings(dhanu_image)[0]
 known_face_encodings = [
     dhanu_encode
    
 ]
 known_face_names = [
-  'dhanush'
+  'person name'
 ]
 face_locations = []
 face_encodings = []
@@ -46,9 +46,9 @@ while 1:
 
             # Or instead, use the known face with the smallest distance to the new face
             face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
-            print(face_distances)
+            
             best_match_index = np.argmin(face_distances)
-            print(best_match_index)
+            
             if matches[best_match_index]:
                 name = known_face_names[best_match_index]
                 
